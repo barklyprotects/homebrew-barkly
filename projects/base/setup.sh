@@ -18,6 +18,11 @@ echo
 
 echo "Cloning repos"
 while read REPO; do
-  echo ">> Cloning $REPO into $BARKLYDIR/$REPO"
-  git clone https://github.com/barklyprotects/$REPO.git "$BARKLYDIR/$REPO"
+
+  if ! [ -d "$BARKLYDIR/$REPO" ]; then
+    echo ">> Cloning $REPO into $BARKLYDIR/$REPO"
+    git clone https://github.com/barklyprotects/$REPO.git "$BARKLYDIR/$REPO"
+  else
+    echo ">> Skipping $REPO, already exists."
+  fi
 done < $BASEDIR/repos
