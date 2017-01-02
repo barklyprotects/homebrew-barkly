@@ -9,12 +9,15 @@ echo "Starting barkly brew setup..."
 
 if [ -d "$HOME/cylent" ]; then
   echo "Using existing cylent directory."
-  echo "Symlinking barkly dir"
-  ln -sv "$HOME/cylent" "$HOME/barkly"
+  # Do nothing if link already exists
+  if ! [ -h "$HOME/barkly" ]; then
+    echo "Symlinking barkly dir"
+    ln -sv "$HOME/cylent" "$HOME/barkly"
+  fi
   BARKLYDIR="$HOME/cylent"
 else
   echo "Using barkly home directory."
-  mkdir -p $HOME/barkly
+  mkdir -p "$HOME/barkly"
   BARKLYDIR="$HOME/barkly"
 fi
 
