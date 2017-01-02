@@ -17,6 +17,7 @@ brew bundle --file="$BASEDIR/Brewfile"
 echo
 
 echo "Cloning repos"
+echo
 while read REPO; do
 
   if ! [ -d "$BARKLYDIR/$REPO" ]; then
