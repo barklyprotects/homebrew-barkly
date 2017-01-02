@@ -1,0 +1,32 @@
+#!/bin/bash
+
+HOMEBREWBARKLYCMDDIR=$(dirname $0)
+cd $HOMEBREWBARKLYCMDDIR/..
+HOMEBREWBARKLYDIR=$(pwd -P)
+
+
+echo "Starting barkly brew setup..."
+
+if [ -d "$HOME/cylent" ]; then
+  echo "Using existing cylent directory."
+  echo "Symlinking barkly dir"
+  ln -sv "$HOME/cylent" "$HOME/barkly"
+  BARKLYDIR="$HOME/cylent"
+else
+  echo "Using barkly home directory."
+  mkdir -p $HOME/barkly
+  BARKLYDIR="$HOME/barkly"
+fi
+
+if ! [ -e "$BARKLYDIR/projects" ]; then
+  echo "Projects file not found!"
+  echo "Creating and populating with base."
+  echo "base" > $BARKLYDIR/projects
+fi
+
+echo "Running setup for each project..."
+while read PROJECT; do
+  echo "Starting setup for $PROJECT"
+  "$HOMEBREWBARKLYDIR/projects/$PROJECT/setup.sh"
+  echo "Done."
+done < $BARKLYDIR/projects
