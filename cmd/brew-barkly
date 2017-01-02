@@ -14,11 +14,11 @@ if [ -d "$HOME/cylent" ]; then
     echo "Symlinking barkly dir"
     ln -sv "$HOME/cylent" "$HOME/barkly"
   fi
-  BARKLYDIR="$HOME/cylent"
+  export BARKLYDIR="$HOME/cylent"
 else
   echo "Using barkly home directory."
   mkdir -p "$HOME/barkly"
-  BARKLYDIR="$HOME/barkly"
+  export BARKLYDIR="$HOME/barkly"
 fi
 
 if ! [ -e "$BARKLYDIR/projects" ]; then
