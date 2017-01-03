@@ -47,7 +47,7 @@ ops
 saas
 ```
 
-These projects correspond to the projects directory in this project.
+These projects correspond to the [projects directory](https://github.com/barklyprotects/homebrew-barkly/tree/master/projects) in this repo.
 These projects are setup as [described below.](#homebrew-barkly-projects)
 In the future this can be expanded to many projects.
 
