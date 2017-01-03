@@ -12,6 +12,9 @@ check_init() {
 clonerepos() {
   repos=$1
   while read REPO; do
+    # Skip comments and empty lines
+    [[ $REPO == \#* ]] || [ -z "$REPO" ] && continue
+
     repoArray=($REPO)
     repo="${repoArray[0]}"
     pull="${repoArray[1]}"
