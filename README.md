@@ -33,7 +33,7 @@ This script currently does the following:
 - Sets up ~/cylent && ~/barkly.
 - Sets up a [projects file](#projects-file) in the above directory.
 - Reads projects in project file, executing for each:
-  - brew install of [Brewfile](https://github.com/Homebrew/homebrew-bundle/blob/master/Readme.md)
+  - brew install of [Brewfile](#brewfile)
   - Clone & pull of repos in [repo file](#repo-file)
   - Execution of setup.sh
 
@@ -45,15 +45,15 @@ These projects correspond to the projects directory in this project.
 These projects are setup as [described below.](#homebrew-barkly-projects)
 In the future this can be expanded to many projects.
 
-#### Homebrew Barkly Projects
+## Homebrew Barkly Projects
 Projects are created and configured in this repo.  Each project gets it's own folder under `projects/`
 
 A project consists of:
-- [Brewfile](https://github.com/Homebrew/homebrew-bundle/blob/master/Readme.md)
+- [Brewfile](#brewfile)
 - [Repo file](#repo-file)
 - `Setup.sh` file that's executable and sets up any additional dependencies.
 
-##### Repo file
+#### Repo file
 A repo file lists github repos that we'd like to clone with a given project.
 
 Repo files are setup as such:
@@ -65,6 +65,19 @@ angalia-api
 
 In the above example, api-keys will always be pulled when homebrew Barkly runs.
 Angalia-api will not pull after it's initial clone.
+
+#### Brewfile
+A brew file lets you setup brew and cask forumla.  It also allows you to install Mac App store apps.
+```
+tap 'caskroom/cask'
+
+cask 'google-chrome'
+brew 'mysql', restart_service: true, conflicts_with: ['homebrew/versions/mysql56']
+cask 'firefox', args: { appdir: '~/my-apps/Applications' }
+mas '1Password', id: 443987910
+```
+
+A detailed explanation of Brew file can be found [here](https://github.com/Homebrew/homebrew-bundle/blob/master/Readme.md).
 
 ## Development
 Since homebrew barkly just executes bash scripts, it's easy to run locally:
