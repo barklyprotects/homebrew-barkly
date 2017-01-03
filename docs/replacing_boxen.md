@@ -12,6 +12,6 @@ Basics
 -------
 A user wants to setup a machine with strap.  You'll likely want to [remove boxen](https://github.com/barklyprotects/our-boxen/blob/master/script/nuke) if it's installed.
 
-Strap generates a custom shell script for each user after authenticating against github.  Read more about our strap server [here](https://github.com/barklyprotects/strap).  Our strap app currently runs in Heroku but would eventually migrate to our AWS servers.  You can access it here: https://barkly-strap.herokuapp.com/
+Strap generates a custom shell script for each user after authenticating against github.  Read more about our strap server [here](https://github.com/barklyprotects/strap).  Our strap app currently runs in Heroku but would eventually migrate to our AWS servers.  You can access it here: https://barkly-strap.herokuapp.com/  The [main difference](https://github.com/barklyprotects/strap/commit/a4d110b8baebdc2b286220252d0e8453acba8373#diff-04c6e90faac2675aa89e2176d2eec7d8R52) between our forked strap app and the non-fork is the addition of `CUSTOM_TAP` and `CUSTOM_TAP_COMMAND`, which will automatically setup our users with this repo.
 
 At the end of setup, strap with use this custom [tap](https://github.com/Homebrew/brew/blob/master/docs/brew-tap.md) and run `brew barkly` to setup barkly configs.  You can find what that does [here](https://github.com/barklyprotects/homebrew-barkly/blob/master/cmd/brew-barkly).
