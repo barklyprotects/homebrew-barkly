@@ -31,10 +31,10 @@ This tap adds the `brew barkly` function. This simply runs a [shell script](http
 
 This script currently does the following:
 - Sets up ~/cylent && ~/barkly.
-- Sets up a [projects file](#projects) in the above directory.
+- Sets up a [projects file](#projects-file) in the above directory.
 - Reads projects in project file, executing for each:
   - brew install of [Brewfile](https://github.com/Homebrew/homebrew-bundle/blob/master/Readme.md)
-  - Clone & pull of repos in [repo file](#repofile)
+  - Clone & pull of repos in [repo file](#repo-file)
   - Execution of setup.sh
 
 #### Projects file
@@ -42,7 +42,7 @@ A project file is maintained on a Barkly user's computer in `~/barkly/projects`.
 If none exists, we create one with `base` in it.
 
 These projects correspond to the projects directory in this project.
-These projects are setup as [described below.](#homebrewbarklyprojects)
+These projects are setup as [described below.](#homebrew-barkly-projects)
 In the future this can be expanded to many projects.
 
 #### Homebrew Barkly Projects
@@ -50,7 +50,7 @@ Projects are created and configured in this repo.  Each project gets it's own fo
 
 A project consists of:
 - [Brewfile](https://github.com/Homebrew/homebrew-bundle/blob/master/Readme.md)
-- [Repo file](#repofile)
+- [Repo file](#repo-file)
 - `Setup.sh` file that's executable and sets up any additional dependencies.
 
 ##### Repo file
