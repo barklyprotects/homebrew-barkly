@@ -40,13 +40,19 @@ This script currently does the following:
 #### Projects file
 A project file is maintained on a Barkly user's computer in `~/barkly/projects`.
 If none exists, we create one with `base` in it.
+Put a project on each line:
+```
+base
+ops
+saas
+```
 
 These projects correspond to the projects directory in this project.
 These projects are setup as [described below.](#homebrew-barkly-projects)
 In the future this can be expanded to many projects.
 
 ## Homebrew Barkly Projects
-Projects are created and configured in this repo.  Each project gets it's own folder under `projects/`
+Projects are created, configured and check in to this repo.  Each project gets it's own folder under `projects/`
 
 A project consists of:
 - [Brewfile](#brewfile)
