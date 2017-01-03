@@ -12,11 +12,19 @@ check_init() {
 clonerepos() {
   repos=$1
   while read REPO; do
-    if ! [ -d "$BARKLYDIR/$REPO" ]; then
-      echo ">> Cloning $REPO into $BARKLYDIR/$REPO"
-      git clone https://github.com/barklyprotects/$REPO.git "$BARKLYDIR/$REPO"
+    repoArray=($REPO)
+    repo="${repoArray[0]}"
+    pull="${repoArray[1]}"
+
+    if ! [ -d "$BARKLYDIR/$repo" ]; then
+      echo ">> Cloning $repo into $BARKLYDIR/$repo"
+      git clone https://github.com/barklyprotects/$repo.git "$BARKLYDIR/$repo"
     else
-      echo ">> Skipping $REPO, already exists."
+      echo ">> Skipping $repo, already exists."
+      if [ -n "$pull" ] && [ "$pull"="pull" ]; then
+        echo ">>> Pulling $repo"
+        cd $BARKLYDIR/$repo && git pull
+      fi
     fi
   done < $repos
 
