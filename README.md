@@ -1,5 +1,6 @@
 Barkly Homebrew
 ===============
+This is an alternative to Boxen since it is now [deprecated.](https://github.com/boxen/boxen/issues/197)
 
 Requirements
 ------------
