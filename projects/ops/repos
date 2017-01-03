@@ -1,0 +1,10 @@
+# List of repos to setup.
+# Format:
+# <github repo name> <pull on each `brew barkly`?>
+
+ops-docker
+site-ops
+ops-tools
+GERTY
+barkly-environments
+barkly-kubernetes

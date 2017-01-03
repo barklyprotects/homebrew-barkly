@@ -25,7 +25,7 @@ clonerepos() {
     pull="${repoArray[1]}"
 
     if ! [ -d "$BARKLYDIR/$repo" ]; then
-      log "Cloning $repo into $BARKLYDIR/$repo:"
+      logn "Cloning $repo into $BARKLYDIR/$repo:"
       git clone https://github.com/barklyprotects/$repo.git "$BARKLYDIR/$repo" &> /dev/null
       logk
     else

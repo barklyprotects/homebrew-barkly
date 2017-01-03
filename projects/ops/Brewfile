@@ -1,0 +1,4 @@
+brew 'kubernetes-cli'
+brew 'kubernetes-helm'
+
+cask 'minikube'

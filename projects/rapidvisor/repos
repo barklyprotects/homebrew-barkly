@@ -1,0 +1,13 @@
+# List of repos to setup.
+# Format:
+# <github repo name> <pull on each `brew barkly`?>
+
+RapidVisor
+RV-Shared
+RV-Stub
+RV-Tools
+RV-OSMonitor
+RV-Loaders
+RV-Transend
+watchtower
+athena

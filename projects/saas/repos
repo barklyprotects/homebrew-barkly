@@ -1,0 +1,12 @@
+# List of repos to setup.
+# Format:
+# <github repo name> <pull on each `brew barkly`?>
+
+angalia
+angalia-web
+angalia-seed
+angalia-test
+angalia-docker
+angalia-api
+msi-service
+dev-tools
