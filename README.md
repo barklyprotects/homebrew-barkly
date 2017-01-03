@@ -86,3 +86,5 @@ cmd/brew-barkly
 ```
 
 Once changes are pushed to github master, users simply need to run `brew update`.
+
+Long term we should attempt to move any functions to the lib directory to prevent repeating code.
