@@ -37,7 +37,7 @@ This script currently does the following:
   - Clone & pull of repos in [repo file](#repofile)
   - Execution of setup.sh
 
-#### <a name="projects"></a> Projects file
+#### Projects file
 A project file is maintained on a Barkly user's computer in `~/barkly/projects`.
 If none exists, we create one with `base` in it.
 
@@ -45,7 +45,7 @@ These projects correspond to the projects directory in this project.
 These projects are setup as [described below.](#homebrewbarklyprojects)
 In the future this can be expanded to many projects.
 
-#### <a name="homebrewbarklyprojects"></a> Homebrew Barkly Projects
+#### Homebrew Barkly Projects
 Projects are created and configured in this repo.  Each project gets it's own folder under `projects/`
 
 A project consists of:
@@ -53,7 +53,7 @@ A project consists of:
 - [Repo file](#repofile)
 - `Setup.sh` file that's executable and sets up any additional dependencies.
 
-##### <a name="repofile"></a> Repo file
+##### Repo file
 A repo file lists github repos that we'd like to clone with a given project.
 
 Repo files are setup as such:
