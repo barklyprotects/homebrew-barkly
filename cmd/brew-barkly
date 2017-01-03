@@ -18,6 +18,10 @@ if [ -d "$HOME/cylent" ]; then
 else
   echo "Using barkly home directory."
   mkdir -p "$HOME/barkly"
+  if ! [ -h "$HOME/cylent"]; then
+    echo "Creating cylent symlink for now."
+    ln -sv "$HOME/barkly" "$HOME/cylent"
+  fi
   export BARKLYDIR="$HOME/barkly"
 fi
 
