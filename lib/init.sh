@@ -1,6 +1,11 @@
 #!/bin/bash
 # Library of functions for use in project files
 
+abort() { STRAP_STEP="";   echo "!!! $*" >&2; exit 1; }
+log()   { STRAP_STEP="$*"; echo "--> $*"; }
+logn()  { STRAP_STEP="$*"; printf -- "--> %s " "$*"; }
+logk()  { STRAP_STEP="";   echo "OK"; }
+
 check_init() {
   if ! [ $BARKLYDIR ]; then
     echo Barkly directroy not defined.
@@ -20,15 +25,16 @@ clonerepos() {
     pull="${repoArray[1]}"
 
     if ! [ -d "$BARKLYDIR/$repo" ]; then
-      echo ">> Cloning $repo into $BARKLYDIR/$repo"
-      git clone https://github.com/barklyprotects/$repo.git "$BARKLYDIR/$repo"
+      log "Cloning $repo into $BARKLYDIR/$repo:"
+      git clone https://github.com/barklyprotects/$repo.git "$BARKLYDIR/$repo" &> /dev/null
+      logk
     else
-      echo ">> Skipping $repo, already exists."
+      log "Skipping $repo, already exists."
       if [ -n "$pull" ] && [ "$pull"="pull" ]; then
-        echo ">>> Pulling $repo"
-        cd $BARKLYDIR/$repo && git pull
+        logn "Pulling $repo:"
+        cd $BARKLYDIR/$repo && git pull &>/dev/null
+        logk
       fi
     fi
   done < $repos
-
 }

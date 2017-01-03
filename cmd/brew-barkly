@@ -2,48 +2,48 @@
 
 HOMEBREWBARKLYCMDDIR=$(dirname $0)
 cd $HOMEBREWBARKLYCMDDIR/..
-HOMEBREWBARKLYDIR=$(pwd -P)
+export HOMEBREWBARKLYDIR=$(pwd -P)
 . "$HOMEBREWBARKLYDIR/lib/init.sh"
 
-echo "Starting barkly brew setup..."
+log "Starting barkly brew setup..."
 
 if [ -d "$HOME/cylent" ]; then
-  echo "Using existing cylent directory."
+  log "Using existing cylent directory."
   # Do nothing if link already exists
   if ! [ -h "$HOME/barkly" ]; then
-    echo "Symlinking barkly dir"
+    logn "Symlinking barkly dir:"
     ln -sv "$HOME/cylent" "$HOME/barkly"
+    logk
   fi
   export BARKLYDIR="$HOME/cylent"
 else
-  echo "Using barkly home directory."
+  log "Using barkly home directory."
   mkdir -p "$HOME/barkly"
   if ! [ -h "$HOME/cylent"]; then
-    echo "Creating cylent symlink for now."
+    logn "Creating cylent symlink for now:"
     ln -sv "$HOME/barkly" "$HOME/cylent"
+    logk
   fi
   export BARKLYDIR="$HOME/barkly"
 fi
 
 if ! [ -e "$BARKLYDIR/projects" ]; then
-  echo "Projects file not found!"
-  echo "Creating and populating with base."
+  log "Projects file not found!"
+  logn "Creating and populating with base:"
   echo "base" > $BARKLYDIR/projects
+  logk
 fi
 
-echo "Running setup for each project..."
+log "Running setup for each project..."
 while read PROJECT; do
-  echo "Starting setup for $PROJECT"
-  echo "Starting brew installation..."
-  echo
+  log "Starting setup for $PROJECT"
+  log "Starting brew installation..."
   brew bundle --file="$HOMEBREWBARKLYDIR/projects/$PROJECT/Brewfile"
-  echo
-  echo "Cloning Repos"
-  echo
+  logk
+  log "Cloning Repos for $PROJECT"
   clonerepos "$HOMEBREWBARKLYDIR/projects/$PROJECT/repos"
-  echo
-  echo "Running additional setup"
+  logk
+  log "Running additional setup for $PROJECT"
   "$HOMEBREWBARKLYDIR/projects/$PROJECT/setup.sh"
-  echo
-  echo "Done."
+  logk
 done < $BARKLYDIR/projects
