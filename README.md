@@ -2,10 +2,12 @@ Barkly Homebrew
 ===============
 This is an alternative to Boxen since it is now [deprecated.](https://github.com/boxen/boxen/issues/197)
 
+Read more about Strap and Homebrew-barkly as a [Boxen replacement.](https://github.com/barklyprotects/homebrew-barkly/blob/master/docs/replacing_boxen.md)
+
 Requirements
 ------------
 This tap assumes you've already setup homebrew on your mac.  In general, this
-should be with strap however it should work without strap.
+should be with [strap](https://github.com/barklyprotects/strap) however it should work without strap.
 
 Installation
 ------------
