@@ -39,6 +39,7 @@ This script currently does the following:
   - brew install of [Brewfile](#brewfile)
   - Clone & pull of repos in [repo file](#repo-file)
   - Execution of setup.sh
+- Reads users config from users directory, exactly as we do for projects.
 
 #### Projects file
 A project file is maintained on a Barkly user's computer in `~/barkly/projects`.
@@ -51,10 +52,10 @@ saas
 ```
 
 These projects correspond to the [projects directory](https://github.com/barklyprotects/homebrew-barkly/tree/master/projects) in this repo.
-These projects are setup as [described below.](#homebrew-barkly-projects)
+These projects are setup as [described below.](#homebrew-barkly-projects-and-users)
 In the future this can be expanded to many projects.
 
-## Homebrew Barkly Projects
+## Homebrew Barkly Projects and Users
 Projects are created, configured and check in to this repo.  Each project gets it's own folder under `projects/`
 
 A project consists of:
@@ -95,5 +96,13 @@ cmd/brew-barkly
 ```
 
 Once changes are pushed to github master, users simply need to run `brew update`.
+
+#### Create
+To automatically create a User or Project, you can run something like:
+```
+brew barkly create user mikesplain
+brew barkly create project foo
+```
+Note, if bootstrapping without a user already created, we will create one for you!
 
 Long term we should attempt to move any functions to the lib directory to prevent repeating code.
