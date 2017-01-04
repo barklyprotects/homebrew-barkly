@@ -90,12 +90,15 @@ mas '1Password', id: 443987910
 A detailed explanation of Brew file can be found [here](https://github.com/Homebrew/homebrew-bundle/blob/master/Readme.md).
 
 ## Development
+When making any changes to homebrew-barkly, you must test using the below commands
+rather than `brew barkly` since this points directly to the git repo version of this tap.
+
 Since homebrew barkly just executes bash scripts, it's easy to run locally:
 ```
 cmd/brew-barkly
 ```
 
-Once changes are pushed to github master, users simply need to run `brew update`.
+Once changes are pushed to github master, users simply need to run `brew update && brew barkly`.
 
 #### Create
 To automatically create a User or Project, you can run something like:
