@@ -7,7 +7,7 @@ log()   { STRAP_STEP="$*"; echo "--> $*"; }
 logn()  { STRAP_STEP="$*"; printf -- "--> %s " "$*"; }
 logk()  { STRAP_STEP="";   echo "OK"; }
 
-check_init() {
+checkInit() {
   if ! [ $BARKLYDIR ]; then
     echo Barkly directroy not defined.
     echo Please run from brew barkly instead.
@@ -38,7 +38,7 @@ setupBarklyDir() {
   export BARKLYDIR
 }
 
-clonerepos() {
+cloneRepos() {
   repos=$1
   while read REPO; do
     # Skip comments and empty lines
