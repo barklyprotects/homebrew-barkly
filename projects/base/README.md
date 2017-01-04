@@ -10,4 +10,4 @@ This project contains env files which previously lived [here](https://github.com
 They have been migrated to work for both bash and zsh.
 These should be sourced by the user in dotfiles.
 
-For these to work users must source ~/.env
+For these to work users must source ~/.env in their own zsh or bash configs.
