@@ -18,3 +18,10 @@ else
   log "Vagrant vmware fusion plugin license not found."
   log "Please add to licenses github repo."
 fi
+
+logn "Setting up env files:"
+mkdir -p "$HOME/.env" &> /dev/null
+for file in $THISDIR/files/env/*; do
+  cp "$file" "$HOME/.env"
+done
+logk

@@ -2,3 +2,4 @@ cask 'docker'
 cask 'java'
 
 brew 'node'
+brew 'nodenv'

@@ -22,6 +22,7 @@ FULLPATH="$BARKLYDIR/homebrew-barkly/$ACTIONDIR/$NAME"
 logn "Setting up $ACTION for $NAME:"
 
 mkdir -p "$FULLPATH" 2> /dev/null
+mkdir -p "$FULLPATH/files" 2> /dev/null
 logk
 
 logn "Creating Brewfile for $NAME:"

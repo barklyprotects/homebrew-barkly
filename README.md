@@ -64,7 +64,7 @@ They consists of:
 - [Brewfile](#brewfile)
 - [Repo file](#repo-file)
 - `Setup.sh` file that's executable and sets up any additional dependencies.
-- Other dependencies that can be executed in one of the above files.
+- files/ – directory of other files sourced or used by setup.sh
 
 [What belongs in projects vs user files?](docs/projects_vs_users.md)
 
