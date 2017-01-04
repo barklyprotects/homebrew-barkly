@@ -58,12 +58,15 @@ These projects are setup as [described below.](#homebrew-barkly-projects-and-use
 In the future this can be expanded to many projects.
 
 ## Homebrew Barkly Projects and Users
-Projects are created, configured and check in to this repo.  Each project gets it's own folder under `projects/`
+Projects and users are created, configured and checked in to this repo.  Each project/user gets it's own folder under `projects/` / `users/`
 
-A project consists of:
+They consists of:
 - [Brewfile](#brewfile)
 - [Repo file](#repo-file)
 - `Setup.sh` file that's executable and sets up any additional dependencies.
+- Other dependencies that can be executed in one of the above files.
+
+[What belongs in projects vs user files?](docs/projects_vs_users.md)
 
 #### Repo file
 A repo file lists github repos that we'd like to clone with a given project.
