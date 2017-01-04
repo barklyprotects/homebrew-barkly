@@ -32,6 +32,8 @@ brew barkly
 
 This tap adds the `brew barkly` function. This simply runs a [shell script](https://github.com/barklyprotects/homebrew-barkly/blob/master/cmd/brew-barkly).
 
+There is also `brew barkly create ...` described [here](#create), but you should come back to that later.
+
 This script currently does the following:
 - Sets up ~/cylent && ~/barkly.
 - Sets up a [projects file](#projects-file) in the above directory.
