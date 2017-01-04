@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASEDIRFILE=$(dirname $0)
-cd $BASEDIRFILE
-BASEDIR=$(pwd -P)
+THISDIRFILE=$(dirname $0)
+cd $THISDIRFILE
+THISDIR=$(pwd -P)
 . "$HOMEBREWBARKLYDIR/lib/init.sh"

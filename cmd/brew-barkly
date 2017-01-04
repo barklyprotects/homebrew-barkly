@@ -36,8 +36,7 @@ fi
 
 log "Running setup for each project..."
 while read PROJECT; do
-  log "Starting setup for $PROJECT"
-  log "Starting brew installation..."
+  log "Starting brewfile installation for $PROJECT"
   brew bundle --file="$HOMEBREWBARKLYDIR/projects/$PROJECT/Brewfile"
   logk
   log "Cloning Repos for $PROJECT"
