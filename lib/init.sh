@@ -2,6 +2,7 @@
 # Library of functions for use in project files
 
 abort() { STRAP_STEP="";   echo "!!! $*" >&2; exit 1; }
+alert() { STRAP_STEP="$*"; echo "!!! $*"; }
 log()   { STRAP_STEP="$*"; echo "--> $*"; }
 logn()  { STRAP_STEP="$*"; printf -- "--> %s " "$*"; }
 logk()  { STRAP_STEP="";   echo "OK"; }
@@ -12,6 +13,29 @@ check_init() {
     echo Please run from brew barkly instead.
     exit 1
   fi
+}
+
+setupBarklyDir() {
+  if [ -d "$HOME/cylent" ]; then
+    # log "Using existing cylent directory."
+    # Do nothing if link already exists
+    if ! [ -h "$HOME/barkly" ]; then
+      logn "Symlinking barkly dir:"
+      ln -sv "$HOME/cylent" "$HOME/barkly"
+      logk
+    fi
+    BARKLYDIR="$HOME/cylent"
+  else
+    # log "Using barkly home directory."
+    mkdir -p "$HOME/barkly"
+    if ! [ -h "$HOME/cylent"]; then
+      logn "Creating cylent symlink for now:"
+      ln -sv "$HOME/barkly" "$HOME/cylent"
+      logk
+    fi
+    BARKLYDIR="$HOME/cylent"
+  fi
+  export BARKLYDIR
 }
 
 clonerepos() {
@@ -38,3 +62,5 @@ clonerepos() {
     fi
   done < $repos
 }
+
+setupBarklyDir
