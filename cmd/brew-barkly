@@ -28,7 +28,7 @@ while read PROJECT; do
   brew bundle --file="$HOMEBREWBARKLYDIR/projects/$PROJECT/Brewfile"
   logk
   log "Cloning Repos for $PROJECT"
-  clonerepos "$HOMEBREWBARKLYDIR/projects/$PROJECT/repos"
+  cloneRepos "$HOMEBREWBARKLYDIR/projects/$PROJECT/repos"
   logk
   log "Running additional setup for $PROJECT"
   "$HOMEBREWBARKLYDIR/projects/$PROJECT/setup.sh"
@@ -55,7 +55,7 @@ else
   brew bundle --file="$HOMEBREWBARKLYDIR/users/$USER_GITHUB/Brewfile"
   logk
   log "Cloning personal repos for your user"
-  clonerepos "$HOMEBREWBARKLYDIR/users/$USER_GITHUB/repos"
+  cloneRepos "$HOMEBREWBARKLYDIR/users/$USER_GITHUB/repos"
   logk
   log "Running additional setup for your user"
   "$HOMEBREWBARKLYDIR/users/$USER_GITHUB/setup.sh"
