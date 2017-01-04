@@ -45,7 +45,7 @@ This script currently does the following:
 
 #### Projects file
 A project file is maintained on a Barkly user's computer in `~/barkly/projects`.
-If none exists, we create one with `base` in it.
+If none exists, we create one with `base` in it. For details on base, view it's [Readme.](projects/base/README.md)
 Put a project on each line:
 ```
 base
