@@ -129,3 +129,15 @@ brew barkly create project foo
 Note, if bootstrapping without a user already created, we will create one for you!
 
 Long term we should attempt to move any functions to the lib directory to prevent repeating code.
+
+#### Testing
+
+Currently we have open sourced this project.  Testing takes place in [Travis CI](https://travis-ci.org/barklyprotects/homebrew-barkly).
+Our repo will be tested on each commit and PR, for free. On an OSX machine in the cloud.
+The current state of the build can be seen at the top of this repo and in slack.
+This may take time since there is often a backup during the business day, see [Travis CI Status Page](https://www.traviscistatus.com/)
+and "Backlog OS X Builds for Open Source Projects".
+
+This is also easy to test in VMware fusion.  Create a new VM and install OSX from the restore partition.  
+This will take ~30 minutes to install.  You can then create a shared directory
+into your vm and snapshot for easy restoring.  Then install `strap.sh` or just this tap.
