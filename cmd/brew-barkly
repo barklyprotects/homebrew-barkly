@@ -40,30 +40,33 @@ done < $BARKLYDIR/projects
 
 USER_GITHUB=$(git config --global github.user)
 
-if ! [ -d "$HOMEBREWBARKLYDIR/users/$USER_GITHUB" ]; then
-  HOMEBREWBARKLYCLONEDIR="$BARKLYDIR/homebrew-barkly"
-  alert "Your user config doesn't currently exist in homebrew-barkly."
-  alert "We're going to setup a repo at $BARKLYDIR/homebrew-barkly."
-  alert "Make changes to your user and push to github."
-  if [ -d "$HOMEBREWBARKLYCLONEDIR" ]; then
-    log "Clone of homebrew-barkly already found"
+if [ -n "$BARKLYTRAVIS" ] || [ -n "$USER_GITHUB" ]; then
+  USER_GITHUB=${USER_GITHUB:-user}
+  if ! [ -d "$HOMEBREWBARKLYDIR/users/$USER_GITHUB" ]; then
+    HOMEBREWBARKLYCLONEDIR="$BARKLYDIR/homebrew-barkly"
+    alert "Your user config doesn't currently exist in homebrew-barkly."
+    alert "We're going to setup a repo at $BARKLYDIR/homebrew-barkly."
+    alert "Make changes to your user and push to github."
+    if [ -d "$HOMEBREWBARKLYCLONEDIR" ]; then
+      log "Clone of homebrew-barkly already found"
+    else
+      logn "Cloning homebrew-barkly to $HOMEBREWBARKLYCLONEDIR to allow modifications:"
+      git clone https://github.com/barklyprotects/homebrew-barkly $HOMEBREWBARKLYCLONEDIR &> /dev/null
+      logk
+    fi
+    $HOMEBREWBARKLYDIR/lib/create.sh "user" "$USER_GITHUB"
   else
-    logn "Cloning homebrew-barkly to $HOMEBREWBARKLYCLONEDIR to allow modifications:"
-    git clone https://github.com/barklyprotects/homebrew-barkly $HOMEBREWBARKLYCLONEDIR &> /dev/null
+    log "Starting brewfile installation setup for your user"
+    brew bundle --file="$HOMEBREWBARKLYDIR/users/$USER_GITHUB/Brewfile"
+    logk
+    log "Cloning personal repos for your user"
+    cloneRepos "$HOMEBREWBARKLYDIR/users/$USER_GITHUB/repos"
+    logk
+    log "Running additional setup for your user"
+    "$HOMEBREWBARKLYDIR/users/$USER_GITHUB/setup.sh"
+    logk
+    log "Starting apps"
+    startApps "$HOMEBREWBARKLYDIR/projects/$USER_GITHUB/startapps"
     logk
   fi
-  $HOMEBREWBARKLYDIR/lib/create.sh "user" "$USER_GITHUB"
-else
-  log "Starting brewfile installation setup for your user"
-  brew bundle --file="$HOMEBREWBARKLYDIR/users/$USER_GITHUB/Brewfile"
-  logk
-  log "Cloning personal repos for your user"
-  cloneRepos "$HOMEBREWBARKLYDIR/users/$USER_GITHUB/repos"
-  logk
-  log "Running additional setup for your user"
-  "$HOMEBREWBARKLYDIR/users/$USER_GITHUB/setup.sh"
-  logk
-  log "Starting apps"
-  startApps "$HOMEBREWBARKLYDIR/projects/$USER_GITHUB/startapps"
-  logk
 fi
