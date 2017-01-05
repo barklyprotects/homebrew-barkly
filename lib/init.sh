@@ -16,10 +16,10 @@ checkInit() {
 }
 
 setupBarklyDir() {
-  if [ -d "$HOME/cylent" ]; then
+  if [ -d "$HOME/cylent" ] && ! [ -L "$HOME/cylent" ]; then
     # log "Using existing cylent directory."
     # Do nothing if link already exists
-    if ! [ -h "$HOME/barkly" ]; then
+    if ! [ -L "$HOME/barkly" ]; then
       logn "Symlinking barkly dir:"
       ln -sv "$HOME/cylent" "$HOME/barkly"
       logk
@@ -28,7 +28,7 @@ setupBarklyDir() {
   else
     # log "Using barkly home directory."
     mkdir -p "$HOME/barkly"
-    if ! [ -h "$HOME/cylent" ]; then
+    if ! [ -L "$HOME/cylent" ]; then
       logn "Creating cylent symlink for now:"
       ln -sv "$HOME/barkly" "$HOME/cylent"
       logk
