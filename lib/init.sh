@@ -28,7 +28,7 @@ setupBarklyDir() {
   else
     # log "Using barkly home directory."
     mkdir -p "$HOME/barkly"
-    if ! [ -h "$HOME/cylent"]; then
+    if ! [ -h "$HOME/cylent" ]; then
       logn "Creating cylent symlink for now:"
       ln -sv "$HOME/barkly" "$HOME/cylent"
       logk
