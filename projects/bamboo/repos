@@ -1,0 +1,7 @@
+# List of repos to setup.
+# Format:
+# <github repo name> <pull on each `brew barkly`?>
+# angalia-api pull
+# angalia-test
+bamboo-docker-plugin
+bamboo-slack-plugin

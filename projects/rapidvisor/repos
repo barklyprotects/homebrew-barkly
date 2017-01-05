@@ -1,7 +1,7 @@
 # List of repos to setup.
 # Format:
 # <github repo name> <pull on each `brew barkly`?>
-
+kimya
 RapidVisor
 RV-Shared
 RV-Stub
@@ -11,3 +11,8 @@ RV-Loaders
 RV-Transend
 watchtower
 athena
+bandit
+easyloggingpp
+OSR_base
+upgrader
+winsw

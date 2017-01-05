@@ -8,3 +8,9 @@ ops-tools
 GERTY
 barkly-environments
 barkly-kubernetes
+aws-prod
+barkly-certs
+aws-dev
+aws-mgmt
+barkly-code-signing-cert
+cybot

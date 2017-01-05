@@ -8,5 +8,9 @@ angalia-seed
 angalia-test
 angalia-docker
 angalia-api
+dropwizard-sisu
 msi-service
 dev-tools
+jetty-session-redis
+system-test
+recurly-java-library
