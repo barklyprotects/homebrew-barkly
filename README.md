@@ -109,6 +109,8 @@ mas '1Password', id: 443987910
 
 A detailed explanation of Brew file can be found [here](https://github.com/Homebrew/homebrew-bundle/blob/master/Readme.md).
 
+If you need a specific version of a Brew, add it to our [versions repo.](docs/homebrew_versions.md)
+
 ## Development
 When making any changes to homebrew-barkly, you must test using the below commands
 rather than `brew barkly` since this points directly to the git repo version of this tap.
