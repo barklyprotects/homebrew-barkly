@@ -1,5 +1,7 @@
 Barkly Homebrew
 ===============
+[![Build Status](https://travis-ci.org/barklyprotects/homebrew-barkly.svg?branch=master)](https://travis-ci.org/barklyprotects/homebrew-barkly)
+
 This is an alternative to Boxen since it is now [deprecated.](https://github.com/boxen/boxen/issues/197)
 
 Read more about Strap and Homebrew-barkly as a [Boxen replacement.](https://github.com/barklyprotects/homebrew-barkly/blob/master/docs/replacing_boxen.md)

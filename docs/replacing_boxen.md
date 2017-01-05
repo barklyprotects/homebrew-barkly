@@ -22,5 +22,3 @@ Our strap setup should be tested independantly from the actual Barkly specific c
 Travis CI makes this easy if our changes stay open source.
 
 https://travis-ci.org/barklyprotects/strap/builds
-
-If we open source this project, we can test it in a similar way with little work.
