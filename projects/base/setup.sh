@@ -25,3 +25,7 @@ for file in $THISDIR/files/env/*; do
   cp "$file" "$HOME/.env"
 done
 logk
+
+logn "Setting up barklyrc:"
+cp "$THISDIR/files/barklyrc" "$HOME/.barklyrc"
+logk
