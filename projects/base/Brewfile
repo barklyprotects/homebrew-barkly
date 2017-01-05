@@ -1,8 +1,6 @@
-tap 'mikesplain/versions'
-
 cask 'atom'
 cask 'docker'
-cask 'firefox36'
+cask 'firefox'
 cask 'github-desktop'
 cask 'google-chrome'
 cask 'google-drive'
