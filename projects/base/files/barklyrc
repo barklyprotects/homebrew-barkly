@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for file in $HOME/.env/*; do
+  source "$file"
+done

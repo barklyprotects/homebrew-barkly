@@ -66,3 +66,13 @@ logk
 logn "Setting permissions on setup file:"
 chmod +x $FULLPATH/setup.sh
 logk
+
+logn "Creating startapps file:"
+cat << 'EOF' > $FULLPATH/startapps
+# List of apps we should "start" during 'brew barkly' runs.
+# They are opened with the 'open' mac command.
+# If they end in .app they will open with 'open -a'
+# docker.app
+# firefox.app
+EOF
+logk

@@ -33,6 +33,9 @@ while read PROJECT; do
   log "Running additional setup for $PROJECT"
   "$HOMEBREWBARKLYDIR/projects/$PROJECT/setup.sh"
   logk
+  log "Starting apps"
+  startApps "$HOMEBREWBARKLYDIR/projects/$PROJECT/startapps"
+  logk
 done < $BARKLYDIR/projects
 
 USER_GITHUB=$(git config --global github.user)
@@ -59,5 +62,8 @@ else
   logk
   log "Running additional setup for your user"
   "$HOMEBREWBARKLYDIR/users/$USER_GITHUB/setup.sh"
+  logk
+  log "Starting apps"
+  startApps "$HOMEBREWBARKLYDIR/projects/$USER_GITHUB/startapps"
   logk
 fi

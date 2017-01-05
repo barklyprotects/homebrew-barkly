@@ -63,4 +63,26 @@ cloneRepos() {
   done < $repos
 }
 
+startApps() {
+  apps=$1
+
+  if ! [ -f "$apps" ]; then
+    return
+  fi
+
+  while read APP; do
+    # Skip comments and empty lines
+    [[ $APP == \#* ]] || [ -z "$APP" ] && continue
+
+    logn "Starting $APP:"
+    if [[ "$APP" == *.app ]]; then
+      open -a "$APP"
+    else
+      open "$APP"
+    fi
+    logk
+
+  done < $apps
+}
+
 setupBarklyDir

@@ -81,6 +81,18 @@ angalia-api
 In the above example, api-keys will always be pulled when homebrew Barkly runs.
 Angalia-api will not pull after it's initial clone.
 
+#### Startapps file
+Much like the above Repo file, Startapps starts apps at `brew barkly` runtime.  
+Most mac apps that should run at startup or in the background prefer to manage this themselves,
+so for now we will auto start apps the user wishes to ensure are running.  
+
+Maybe you want to make sure Docker is already running, simply add a line to your startapps file like:
+```
+Docker.app
+```
+
+We will find any app that exists in /Applications natively. You should be able to also provide a full path if you'd like.
+
 #### Brewfile
 A brew file lets you setup brew and cask forumla.  It also allows you to install Mac App store apps.
 ```
