@@ -41,6 +41,7 @@ This script currently does the following:
   - brew install of [Brewfile](#brewfile)
   - Clone & pull of repos in [repo file](#repo-file)
   - Execution of setup.sh
+  - Starts apps listed in [startapps file](startapps-file)
 - Reads users config from users directory, exactly as we do for projects.
 
 #### Projects file
