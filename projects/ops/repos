@@ -14,3 +14,4 @@ aws-dev
 aws-mgmt
 barkly-code-signing-cert
 cybot
+sentry-kubernetes
