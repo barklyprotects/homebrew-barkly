@@ -3,3 +3,4 @@ cask 'java'
 
 brew 'node'
 brew 'nodenv'
+brew 'mvnvm'
