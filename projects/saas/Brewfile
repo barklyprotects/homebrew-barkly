@@ -1,5 +1,6 @@
 cask 'docker'
 cask 'java'
+cask 'intellij-idea'
 
 brew 'node'
 brew 'nodenv'
