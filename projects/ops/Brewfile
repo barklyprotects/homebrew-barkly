@@ -1,6 +1,5 @@
 taps 'barklyprotects/versions'
 
-brew 'kubernetes-cli14'
 brew 'kubernetes-helm'
 
 cask 'minikube'
