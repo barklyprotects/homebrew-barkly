@@ -12,4 +12,5 @@
 brew 'kubernetes-cli'
 brew 'kubernetes-helm'
 brew 'kops'
+brew 'stern'
 cask 'minikube'
