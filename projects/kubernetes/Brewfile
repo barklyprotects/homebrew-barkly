@@ -9,8 +9,10 @@
 # cask 'java' unless system '/usr/libexec/java_home --failfast'
 # cask 'firefox', args: { appdir: '~/my-apps/Applications' }
 # mas '1Password', id: 443987910
+tap 'barklyprotects/versions'
+
 brew 'kubernetes-cli'
 brew 'kubernetes-helm'
-brew 'kops'
+brew 'kops162'
 brew 'stern'
 cask 'minikube'

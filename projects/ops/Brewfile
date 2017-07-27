@@ -1,4 +1,4 @@
-taps 'barklyprotects/versions'
+tap 'barklyprotects/versions'
 
 brew 'kubernetes-helm'
 
