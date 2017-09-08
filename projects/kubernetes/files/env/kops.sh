@@ -12,3 +12,5 @@ alias dev3='kubectl config use-context dev3.barkly.com'
 alias mgmt1='kubectl config use-context mgmt1.barkly.com'
 alias researchkube1='kubectl config use-context researchkube1'
 alias researchkube2='kubectl config use-context researchkube2.barkly.com'
+
+alias k='kubectl "--context=${KUBECTL_CONTEXT:-$(kubectl config current-context)}" ${KUBECTL_NAMESPACE/[[:alnum:]-]*/--namespace=${KUBECTL_NAMESPACE}}'

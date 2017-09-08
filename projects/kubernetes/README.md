@@ -26,3 +26,15 @@ kops export kubecfg --name <cluster name>
 # Run other kubernetes commands
 kubectl get pods
 ```
+
+Aliases
+-------
+As you can see in the `kops.sh` file we've setup some aliases to make it easy to switch between environments.
+
+We've also created an alias for `kubectl` called `k` that will use a k8s environment based on a context or namespace defined in an environment variable:
+```
+$KUBECTL_CONTEXT
+$KUBECTL_NAMESPACE
+```
+
+This makes it easy to have multiple terminals open working on different k8s clusters.
