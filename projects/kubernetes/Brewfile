@@ -13,6 +13,6 @@ tap 'barklyprotects/versions'
 
 brew 'kubernetes-cli'
 brew 'kubernetes-helm'
-brew 'kops162'
+brew 'kops'
 brew 'stern'
 cask 'minikube'
