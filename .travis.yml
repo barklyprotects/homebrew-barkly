@@ -6,6 +6,7 @@ install:
 - rvm --default use 2.3.3;
 
 script:
+- brew update
 - brew tap barklyprotects/barkly .
 - BARKLYTRAVIS=true brew barkly
 
