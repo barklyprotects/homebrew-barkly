@@ -29,3 +29,7 @@ logk
 logn "Setting up barklyrc:"
 cp "$THISDIR/files/barklyrc" "$HOME/.barklyrc"
 logk
+
+logn "Unhiding ~/Library:"
+chflags nohidden ~/Library
+logk
