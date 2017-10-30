@@ -5,4 +5,6 @@
 # angalia-test
 
 barkly-kubernetes
-barkly-kops
+barkly-kops pull
+barkly-charts pull
+barkly-environments pull
