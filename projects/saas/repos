@@ -8,6 +8,7 @@ angalia-seed
 angalia-test
 angalia-docker
 angalia-api
+flex-web
 dropwizard-sisu
 msi-service
 dev-tools
