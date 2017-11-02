@@ -9,7 +9,7 @@ GERTY
 barkly-environments
 barkly-kubernetes
 aws-prod
-barkly-certs
+barkly-web-certs
 aws-dev
 aws-mgmt
 barkly-code-signing-cert
