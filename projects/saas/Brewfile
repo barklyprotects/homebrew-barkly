@@ -1,5 +1,7 @@
+tap caskroom/versions
+
 cask 'docker'
-cask 'java'
+cask 'java8'
 cask 'intellij-idea'
 
 brew 'node'
