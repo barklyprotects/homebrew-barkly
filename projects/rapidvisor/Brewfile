@@ -1,4 +1,6 @@
-cask 'docker'
+tap caskroom/versions
 
-brew 'java'
+cask 'docker'
+cask 'java8'
+
 brew 'node'
