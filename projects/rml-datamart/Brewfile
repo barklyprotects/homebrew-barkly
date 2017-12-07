@@ -1,4 +1,5 @@
 cask 'docker'
+cask 'miniconda'
 
 brew 'node'
 brew 'nodenv'
