@@ -1,1 +1,6 @@
-brew 'libmagic'
+cask 'docker'
+cask 'miniconda'
+
+brew 'node'
+brew 'nodenv'
+brew 'docker-compose'

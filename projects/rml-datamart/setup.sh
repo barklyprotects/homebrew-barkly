@@ -6,4 +6,11 @@ THISDIR=$(pwd -P)
 
 # Start your script below and user any helpsers setup in lib/init.sh
 npm install -g grunt-cli
-pip install localstack
+
+mkdir -p "$HOME/.env" &> /dev/null
+for file in $THISDIR/files/env/*; do
+  source $file
+  cp "$file" "$HOME/.env"
+done
+
+conda create -n rml-datamart python=3.6.1 -y
