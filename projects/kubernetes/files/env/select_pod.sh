@@ -25,5 +25,5 @@ function select_pod {
     bold=$(tput bold)
     normal=$(tput sgr0)
     echo "${bold}kubectl $pod_command $pod_selection --namespace $KUBECTL_NAMESPACE${normal}"
-    k $pod_command $pod_selection
+    kubectl $pod_command $pod_selection --namespace $KUBECTL_NAMESPACE
 }
