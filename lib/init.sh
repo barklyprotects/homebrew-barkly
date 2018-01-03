@@ -71,11 +71,11 @@ cloneRepos() {
 
     if ! [ -d "$BARKLYDIR/$repo" ]; then
       logn "Cloning $repo into $BARKLYDIR/$repo:"
-      git clone https://github.com/barklyprotects/$repo.git "$BARKLYDIR/$repo" &> /dev/null
+      git clone --recursive https://github.com/barklyprotects/$repo.git "$BARKLYDIR/$repo" &> /dev/null
       logk
     else
       log "Skipping $repo, already exists."
-      if [ -n "$pull" ] && [ "$pull"="pull" ]; then
+      if [ -n "$pull" ] && [ "$pull" = "pull" ]; then
         logn "Pulling $repo:"
         cd $BARKLYDIR/$repo && git pull &>/dev/null
         logk
