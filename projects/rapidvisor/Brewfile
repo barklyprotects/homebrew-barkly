@@ -1,6 +1,7 @@
 tap caskroom/versions
+tap 'barklyprotects/versions'
 
 cask 'docker'
-cask 'java8'
+cask 'barklyjava8'
 
 brew 'node'
