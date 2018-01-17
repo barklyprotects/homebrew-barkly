@@ -10,5 +10,5 @@
 # cask 'firefox', args: { appdir: '~/my-apps/Applications' }
 # mas '1Password', id: 443987910
 
-brew 'htop'
+#brew 'htop'
 brew 'iftop'
