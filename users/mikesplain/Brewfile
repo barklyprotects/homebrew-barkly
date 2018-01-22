@@ -12,3 +12,5 @@
 
 #brew 'htop'
 brew 'iftop'
+
+cask 'jetbrains-toolbox'
