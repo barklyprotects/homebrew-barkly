@@ -5,3 +5,4 @@ cask 'docker'
 cask 'barklyjava8'
 
 brew 'node'
+brew 'zeromq'
