@@ -16,3 +16,4 @@ cask '1password'
 cask 'skitch'
 cask 'spectacle'
 cask 'beyond-compare'
+brew 'yarn', args:['without-node']
