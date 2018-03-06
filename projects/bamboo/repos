@@ -3,5 +3,7 @@
 # <github repo name> <pull on each `brew barkly`?>
 # angalia-api pull
 # angalia-test
+
+bamboo
 bamboo-docker-plugin
 bamboo-slack-plugin
