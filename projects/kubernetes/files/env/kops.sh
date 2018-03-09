@@ -1,9 +1,10 @@
 #!/bin/bash
 
 export KOPS_STATE_STORE=s3://barkly-kops
-source <(kubectl completion zsh)
+# NOTE: These were slow and kubectl seemed to autoload for me. Removing for now.
+#source <(kubectl completion zsh)
 source <(kops completion zsh)
-source <(helm completion zsh)
+#source <(helm completion zsh)
 
 alias prod2='kubectl config use-context prod2.barkly.com'
 alias dev1='kubectl config use-context dev1.barkly.com'

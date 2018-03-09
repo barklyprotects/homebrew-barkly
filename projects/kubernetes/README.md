@@ -29,7 +29,9 @@ kubectl get pods
 Tips
 ----
 
-We install kubectx which you should learn more about here: https://github.com/ahmetb/kubectx
+We install kubectx and kube-ps1 which you should learn more about here: https://github.com/ahmetb/kubectx
+
+
 Aliases
 -------
 As you can see in the `kops.sh` file we've setup some aliases to make it easy to switch between environments.
