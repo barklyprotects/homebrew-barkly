@@ -14,5 +14,7 @@ tap 'barklyprotects/versions'
 brew 'kubernetes-cli'
 brew 'kubernetes-helm-261' # From our tap until we upgrade
 brew 'kops'
+brew 'kubectx'
+brew 'kube-ps1'
 brew 'stern'
 cask 'minikube'

@@ -12,7 +12,7 @@ Getting started
 ----------------
 This project will install Kubernetes dependencies, and set an env variable to tell `kops` how to retrieve cluster configs.
 
-Once you've added this project to your projects file (`echo kubernetes >> ~/barkly/projects`) run brew barkly to install dependencies.  
+Once you've added this project to your projects file (`echo kubernetes >> ~/barkly/projects`) run brew barkly to install dependencies.
 
 Open a fresh shell and you should see the env variable for kops defined: `KOPS_STATE_STORE`.
 
@@ -26,7 +26,10 @@ kops export kubecfg --name <cluster name>
 # Run other kubernetes commands
 kubectl get pods
 ```
+Tips
+----
 
+We install kubectx which you should learn more about here: https://github.com/ahmetb/kubectx
 Aliases
 -------
 As you can see in the `kops.sh` file we've setup some aliases to make it easy to switch between environments.
