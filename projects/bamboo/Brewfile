@@ -9,3 +9,8 @@
 # cask 'java' unless system '/usr/libexec/java_home --failfast'
 # cask 'firefox', args: { appdir: '~/my-apps/Applications' }
 # mas '1Password', id: 443987910
+
+brew 'dep'
+brew 'go'
+
+cask 'docker'
