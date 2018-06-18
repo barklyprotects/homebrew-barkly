@@ -4,7 +4,7 @@ language: objective-c
 script:
 - brew update
 - brew tap barklyprotects/barkly .
-- BARKLYTRAVIS=true brew barkly
+- brew barkly
 
 notifications:
   slack:
