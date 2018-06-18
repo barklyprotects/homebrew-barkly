@@ -5,6 +5,9 @@ cd $HOMEBREWBARKLYCMDDIR/..
 export HOMEBREWBARKLYDIR=$(pwd -P)
 . "$HOMEBREWBARKLYDIR/lib/init.sh"
 
+# Disable Gatekeeper so we can install without security prompts
+gatekeeperDisable
+
 if [ "$1" = "create" ]; then
   shift
   $HOMEBREWBARKLYDIR/lib/create.sh "$@"
@@ -70,3 +73,5 @@ if [ -n "$BARKLYTRAVIS" ] || [ -n "$USER_GITHUB" ]; then
     logk
   fi
 fi
+
+cleanup

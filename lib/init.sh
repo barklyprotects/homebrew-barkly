@@ -1,7 +1,7 @@
 #!/bin/bash
 # Library of functions for use in project files
 
-# Portions of this file are 
+# Portions of this file are
 # Copyright (C) 2015 by Mike McQuaid
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,8 +24,8 @@
 
 abort() { STRAP_STEP="";   echo "!!! $*" >&2; exit 1; }
 alert() { STRAP_STEP="$*"; echo "!!! $*"; }
-log()   { STRAP_STEP="$*"; echo "--> $*"; }
-logn()  { STRAP_STEP="$*"; printf -- "--> %s " "$*"; }
+log()   { STRAP_STEP="$*"; sudo_init; echo "--> $*"; }
+logn()  { STRAP_STEP="$*"; sudo_init; printf -- "--> %s " "$*"; }
 logk()  { STRAP_STEP="";   echo "OK"; }
 
 checkInit() {
@@ -34,6 +34,37 @@ checkInit() {
     echo Please run from brew barkly instead.
     exit 1
   fi
+}
+
+# Copied from https://github.com/MikeMcQuaid/strap/blob/0ac782c7ddc6972f10e05cf611d4a70d46c441d8/bin/strap.sh#L55-L66
+# Initialise (or reinitialise) sudo to save unhelpful prompts later.
+sudo_init() {
+  if ! sudo -vn &>/dev/null; then
+    if [ -n "$BREWBARKLY_SUDOED_ONCE" ]; then
+      echo "--> Re-enter your password (for sudo access; sudo has timed out):"
+    else
+      echo "--> Enter your password (for sudo access):"
+    fi
+    sudo /usr/bin/true
+    BREWBARKLY_SUDOED_ONCE="1"
+  fi
+}
+
+setupSudo() {
+  # We want to ask for sudo permissions quickly when this is run.
+  sudo -k
+}
+
+gatekeeperDisable() {
+  log "Modifying gatekeeper to allow all apps to install: "
+  sudo spctl --master-disable
+  logk
+}
+
+gatekeeperEnable() {
+  log "Resetting gatekeeper to prompt for app security: "
+  sudo spctl --master-enable
+  logk
 }
 
 setupBarklyDir() {
@@ -106,4 +137,13 @@ startApps() {
   done < $apps
 }
 
+cleanup() {
+  # Turning gatekeeper back on for security
+  gatekeeperEnable
+  exit 2
+}
+
+trap cleanup SIGINT
+
 setupBarklyDir
+setupSudo
