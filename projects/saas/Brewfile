@@ -4,7 +4,9 @@ tap 'barklyprotects/versions'
 cask 'docker'
 cask 'barklyjava8'
 cask 'intellij-idea'
+cask 'visual-studio-code'
 
 brew 'node'
 brew 'nodenv'
 brew 'mvnvm'
+brew 'yarn', args:['without-node']
