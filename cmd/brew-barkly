@@ -5,6 +5,8 @@ cd $HOMEBREWBARKLYCMDDIR/..
 export HOMEBREWBARKLYDIR=$(pwd -P)
 . "$HOMEBREWBARKLYDIR/lib/init.sh"
 
+# Setup our first sudo
+setupSudo
 # Disable Gatekeeper so we can install without security prompts
 gatekeeperDisable
 

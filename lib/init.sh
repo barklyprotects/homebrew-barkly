@@ -146,4 +146,3 @@ cleanup() {
 trap cleanup SIGINT
 
 setupBarklyDir
-setupSudo
