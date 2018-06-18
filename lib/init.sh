@@ -137,5 +137,13 @@ startApps() {
   done < $apps
 }
 
+cleanup() {
+  # Turning gatekeeper back on for security
+  gatekeeperEnable
+  exit 2
+}
+
+trap cleanup SIGINT
+
 setupBarklyDir
 setupSudo

@@ -74,5 +74,4 @@ if [ -n "$BARKLYTRAVIS" ] || [ -n "$USER_GITHUB" ]; then
   fi
 fi
 
-# Turning gatekeeper back on for security
-gatekeeperEnable
+cleanup
