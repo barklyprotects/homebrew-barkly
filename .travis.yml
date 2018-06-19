@@ -3,7 +3,8 @@ matrix:
   include:
   # OSX 10.13
   - os: osx
-    osx_image: xcode9.4
+    # xcode 9.4 is available but doesn't seem to work well.
+    osx_image: xcode9.3
   # OSX 10.12
   - os: osx
     osx_image: xcode9.2
