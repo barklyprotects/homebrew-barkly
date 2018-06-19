@@ -1,10 +1,21 @@
 #!/bin/bash
 
+dryRun=""
+if [ "$CI" = "true" ]; then
+  dryRun="echo"
+  echo "--> "
+  echo "--> CI=TRUE detected, some commands will be ignored."
+  echo "--> "
+  echo ""
+fi
+
 HOMEBREWBARKLYCMDDIR=$(dirname $0)
 cd $HOMEBREWBARKLYCMDDIR/..
 export HOMEBREWBARKLYDIR=$(pwd -P)
 . "$HOMEBREWBARKLYDIR/lib/init.sh"
 
+# Setup our first sudo
+setupSudo
 # Disable Gatekeeper so we can install without security prompts
 gatekeeperDisable
 

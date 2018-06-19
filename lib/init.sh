@@ -102,13 +102,13 @@ cloneRepos() {
 
     if ! [ -d "$BARKLYDIR/$repo" ]; then
       logn "Cloning $repo into $BARKLYDIR/$repo:"
-      git clone --recursive https://github.com/barklyprotects/$repo.git "$BARKLYDIR/$repo" &> /dev/null
+      $dryRun git clone --recursive https://github.com/barklyprotects/$repo.git "$BARKLYDIR/$repo" &> /dev/null
       logk
     else
       log "Skipping $repo, already exists."
       if [ -n "$pull" ] && [ "$pull" = "pull" ]; then
         logn "Pulling $repo:"
-        cd $BARKLYDIR/$repo && git pull &>/dev/null
+        cd $BARKLYDIR/$repo && $dryRun git pull &>/dev/null
         logk
       fi
     fi
@@ -140,10 +140,9 @@ startApps() {
 cleanup() {
   # Turning gatekeeper back on for security
   gatekeeperEnable
-  exit 2
+  exit
 }
 
 trap cleanup SIGINT
 
 setupBarklyDir
-setupSudo
