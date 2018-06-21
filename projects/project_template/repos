@@ -1,0 +1,4 @@
+# List of repos to setup.
+# Format:
+# <github repo name> <pull on each `brew barkly`?>
+

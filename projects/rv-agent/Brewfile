@@ -1,0 +1,5 @@
+tap 'caskroom/cask'
+
+cask 'dotnet'
+cask 'dotnet-sdk'
+cask 'rider'
