@@ -3,3 +3,7 @@
 # <github repo name> <pull on each `brew barkly`?>
 
 RV-agent
+RV-Shared
+OSXDriver
+OSXControl
+OSXTools
