@@ -1,0 +1,251 @@
+
+" debugging autocmds
+"set verbose=9
+
+map <C-S-Space> :TlistToggle<CR>
+imap <C-Space> <C-n>
+map <M-C-LeftMouse> <LeftMouse><C-\>s
+map <M-LeftMouse> <LeftMouse><C-]>
+
+"Split vertically
+map <C-w>] <C-w>v<C-w>l<C-]>
+
+"get the windows style cut/paste... may cause problems!!!
+map <C-c> "+y
+map <C-v> "+p
+
+"set <Ctrl-d> to insert "mm/dd/yy: hh:mm:ss: "
+map <C-d> i<C-r>=strftime("%m/%d/%y: %I:%M:%S%p: ")<CR><Esc>
+imap <C-d> <C-r>=strftime("%m/%d/%y: %I:%M:%S%p: ")<CR>
+
+"bye bye ^Ms!
+com KCM :%s///g
+
+" Use Vim defaults (much better!)
+set nocompatible
+
+" ignore case on searches unless something is upper case
+set ignorecase
+set smartcase
+
+" turn on auto-copy in the gui
+set guioptions+=a
+set clipboard=autoselect
+
+" use spaces in place of tabs
+set expandtab
+"set noexpandtab
+
+" allow backspacing over everything in insert mode
+set bs=2
+
+" switch the beeps to a screen flash
+set vb
+
+"turn the status line on all the time
+set ls=2
+
+"TAB STOPS
+set ts=4
+"set ts=8
+
+"set the amount of spaces for the shiftwidth 
+set sw=4
+
+"turn on smart tabbing (jumping forward and back by the shiftwidth)
+set sta
+
+"doing a next line with open parens indents to beginning of the most recent open paren
+set cino+=(0
+
+"set the brackets after a "case:" to show up lined up with the 'c' in the "case:" 
+set cino+==0
+
+"set the lines and columns
+set lines=77
+set columns=220
+
+"set the command line height
+set ch=1
+
+set ul=150
+"set nocin		" how was this working before?
+set ai			" always set autoindenting on
+set nobackup		" diable those annoying backup files
+set mouse=a		" enable use of the mouse
+
+"how many lines to keep of search, cmdline, ... history
+set history=120	
+
+set viminfo='50,\"100	" read/write a .viminfo file
+
+
+" Do this for everybody???
+" In text files, always limit the width of text to 78 characters
+"autocmd BufRead *.txt set tw=78	
+set tw=78	
+
+"set tags=/p4/myellen_main_ca/source/tags
+
+"cs kill -1
+"cs add /p4/myellen_main_ca/source/cscope.out /p4/myellen_main_ca/source
+
+"***********************************************
+" Explorer plugin Script stuff... 
+"
+"
+
+"make it split vertically
+"let g:explVertical=1
+let g:netrw_altv=1
+
+" Show file size and dates
+let g:explDetailedList=1
+
+" Segregate items in suffixes option
+let g:explSuffixesLast=0
+
+"***********************************************
+
+auto BufEnter let &titlestring = hostname() . %
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
+" Switch syntax highlighting on, when the terminal has colors
+if &t_Co > 1 || has("gui_running")
+  syntax on
+endif
+
+" Only do this for Vim version 5.0 and later.
+if version >= 500
+
+  " Switch on search pattern highlighting.
+  set hlsearch
+
+  " For Win32 version, have "K" lookup the keyword in a help file
+  "if has("win32")
+  "  let winhelpfile='windows.hlp'
+  "  map K :execute "!start winhlp32 -k <cword> " . winhelpfile <CR>
+  "endif
+
+  " Hide the mouse pointer while typing
+  set mousehide
+
+  "I like the "popup" mouse model.. but I still want Shift left click to search
+  "for the word under the cursor
+  map <S-LeftMouse> <LeftMouse>*
+
+
+  " Set nice colors
+  " background for normal text is light grey
+  " Text below the last line is darker grey
+  " Constants are not underlined but have a slightly lighter background
+  highlight Normal guibg=grey90
+  highlight Cursor guibg=Black guifg=White
+  highlight NonText guibg=grey80
+  highlight Constant gui=NONE guibg=grey95
+  highlight Special gui=NONE guibg=grey95
+  highlight Visual guibg=grey80
+
+  set guifont=Menlo:h12
+
+endif
+
+
+" version 6.2 is being finicky... see if this works...
+if version == 620
+
+  "I like the "popup" mouse model.. but I still want Shift left click to search
+  "for the word under the cursor
+  map <S-LeftMouse> <LeftMouse>*
+
+endif
+
+
+" version 7
+if version == 700
+
+  "I like the "popup" mouse model.. but I still want Shift left click to search
+  "for the word under the cursor
+  map <S-LeftMouse> <LeftMouse>*
+
+endif
+
+augroup cprog
+
+  " Remove all cprog autocommands
+  au!
+
+  " When starting to edit a file:
+  "   For *.c and *.h files set formatting of comments and set C-indenting on.
+  "   For other files switch it off.
+  "   Don't change the order, it's important that the line with * comes first.
+  autocmd BufRead,BufNewFile *       let b:cs='#' | set formatoptions=tcql nocindent comments&
+  autocmd BufRead,BufNewFile *.sh    let b:cs='#' | set formatoptions=tcql nocindent comments&
+  autocmd BufRead,BufNewFile *.vim   let b:cs=''
+  autocmd BufRead,BufNewFile *.pl    let b:cs='#' | set formatoptions=croql cindent | set cinkeys-=0#
+  autocmd BufRead,BufNewFile *.m     let b:cs='%' | set formatoptions=croql cindent
+"  autocmd BufRead,BufNewFile *.xml let b:cs='<!--' | set formatoptions=croql cindent comments=s:<!--,mb:*,ex:--> | call CheckClearCaseStatus()
+"  autocmd BufRead,BufNewFile *.java let b:cs='//' | set formatoptions=croql cindent cino+=l1 comments=sr:/*,mb:*,ex:*/,:// | call CheckClearCaseStatus()
+  autocmd BufRead,BufNewFile *.java let b:cs='//' | set formatoptions=croql cindent cino+=l1 comments=sr:/*,mb:*,ex:*/,:// 
+"  autocmd BufRead,BufNewFile *.c,*.cpp,*.h let b:cs='//' | set formatoptions=croql cindent comments=s:/*,mb:**,ex:*/,:// | :inoremap ( (<Space>| :inoremap ) <Space>)| call CheckClearCaseStatus()
+  autocmd BufRead,BufNewFile *.xml let b:cs='<!--' | let b:ecs='-->' | set formatoptions=croql cindent comments=s:<!--,mb:*,ex:-->
+  autocmd BufRead,BufNewFile *.c,*.cpp,*.h let b:cs='//' | set formatoptions=croql cindent comments=s:/*,mb:**,ex:*/,://
+"  autocmd BufRead *.c,*.cpp,*.h set formatoptions=croql cindent comments=sr:/*,mb:*,el:*/,:// | call CheckClearCaseStatus()
+"  autocmd BufRead,BufNewFile *.bld   call CheckClearCaseStatus()
+
+
+augroup END
+
+function Return_clearCaseStatus_if_it_Exists()
+    if exists('b:clearCaseStatus') | return b:clearCaseStatus | else | return '' | endif
+endfunction
+
+set statusline=%<%f%h\ %r%{Return_clearCaseStatus_if_it_Exists()}%m%=%l\ \ \ \ %P
+
+"***********************************************
+
+"toggle the commenting dependent on wether the first line is commented or not
+function CommentDecommentBeginningSingleLineComments() range
+    let commentString = escape(b:cs, '~')
+    let commentStringBackslashed = escape(b:cs, '/\*.~')
+    let str = getline(a:firstline)
+    if str =~ '^\s*' . commentString  "if this line starts with a comment...
+        "uncomment everything....
+        execute a:firstline . "," . a:lastline . 's/' . commentStringBackslashed . '//'
+    else
+        "else comment everything....
+        execute a:firstline . "," . a:lastline . 's/^/' . commentStringBackslashed . '/'
+    endif
+    return
+endfunction
+
+"toggle the commenting dependent on wether the first line is commented or not
+function CommentDecommentBeginningEndComments() range
+    let commentString = escape(b:cs, '~')
+    let commentStringBackslashed = escape(b:cs, '/\*.~')
+    let endCommentString = escape(b:ecs, '~')
+    let endCommentStringBackslashed = escape(b:ecs, '/\*.~')
+
+    let str = getline(a:firstline)
+    if str =~ '^\s*' . commentString  "if this line starts with a comment...
+        "uncomment everything....
+        execute a:firstline . "," . a:lastline . 's/' . commentStringBackslashed . '//'
+        silent execute a:firstline . "," . a:lastline . 's/' . endCommentStringBackslashed . '$//'
+    else
+        "else comment everything....
+        execute a:firstline . "," . a:lastline . 's/^/' . commentStringBackslashed . '/'
+        silent execute a:firstline . "," . a:lastline . 's/$/' . endCommentStringBackslashed . '/'
+    endif
+    return
+endfunction
+
+
+map <C-F2> :call CommentDecommentBeginningSingleLineComments()<CR>
+nmap t :call CommentDecommentBeginningSingleLineComments()<CR>
+vmap t :call CommentDecommentBeginningSingleLineComments()<CR>
+nmap T :call CommentDecommentBeginningEndComments()<CR>
+vmap T :call CommentDecommentBeginningEndComments()<CR>
+
+"***********************************************
