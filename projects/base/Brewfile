@@ -1,5 +1,5 @@
-tap 'caskroom/drivers'
-tap 'caskroom/versions'
+tap 'homebrew/cask-drivers'
+tap 'homebrew/cask-versions'
 tap 'barklyprotects/versions'
 
 cask 'asix-ax88179'
