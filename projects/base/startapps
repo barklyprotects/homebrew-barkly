@@ -1,4 +1,3 @@
 # List of apps we should "start" during 'brew barkly' runs.
 # They are opened with the 'open' mac command.
 # If they end in .app they will open with 'open -a'
-Slack.app

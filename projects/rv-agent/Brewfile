@@ -1,6 +1,2 @@
-tap 'caskroom/cask'
-
-brew 'xar-mackyle'
-
 cask 'dotnet-sdk'
 cask 'rider'
