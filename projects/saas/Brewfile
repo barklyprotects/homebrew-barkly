@@ -9,4 +9,4 @@ cask 'visual-studio-code'
 brew 'node'
 brew 'nodenv'
 brew 'mvnvm'
-brew 'yarn', args:['without-node']
+brew 'yarn'
