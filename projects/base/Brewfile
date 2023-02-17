@@ -3,7 +3,6 @@ tap 'homebrew/cask-versions'
 tap 'barklyprotects/versions'
 
 cask 'asix-ax88179'
-cask 'atom'
 cask 'docker'
 cask 'firefox'
 cask 'github'
